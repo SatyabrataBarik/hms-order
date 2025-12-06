@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'HMS',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
         home: OrdersPage(),
         routes: {"/cart": (context) => CartPage()},
