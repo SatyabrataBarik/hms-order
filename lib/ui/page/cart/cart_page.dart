@@ -26,6 +26,11 @@ class _CartPageState extends State<CartPage>
   void initState() {
     super.initState();
     _tabController = TabController(length: catalog.length, vsync: this);
+    Future.microtask(() {
+     if(mounted){
+       context.read<CartViewModel>().loadCart();
+     }
+    },);
   }
 
   @override

@@ -34,18 +34,18 @@ class CartViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// ADD OR INCREASE ITEM
   Future<void> add(CartItemEntity item) async {
     final existing = _items[item.id];
 
     if (existing != null) {
       item.qty += 1;
       _items[item.id] = existing;
+      await _repo.update(item, item.id);
     } else {
       item.qty = 1;
       _items[item.id] = item;
+      await _repo.insert(item);
     }
-    await _repo.update(item, item.id);
 
     notifyListeners();
   }

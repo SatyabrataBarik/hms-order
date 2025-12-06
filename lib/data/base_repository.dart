@@ -119,6 +119,7 @@ abstract class BaseRepository<T> {
       toMap(model),
       where: 'id = ?',
       whereArgs: [id],
+      conflictAlgorithm: ConflictAlgorithm.replace
     );
   }
 
